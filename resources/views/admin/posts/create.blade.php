@@ -9,7 +9,7 @@
 			</div>
 			<div class="form-group">
 				{!! Form::label('category_id', 'Category:') !!}
-				{!! Form::select('category_id', array(1=>'PHP', 2=>'Javascript'), null, ['class'=>'form-control']) !!}
+				{!! Form::select('category_id', [''=>'Select category'] + $categories, null, ['class'=>'form-control']) !!}
 			</div>	
 			<div class="form-group">
 				{!! Form::label('photo_id', 'Photo:') !!}
@@ -20,7 +20,7 @@
 				{!! Form::textarea('body', null, ['class'=>'form-control']) !!}
 			</div>		
 			<div class="form-group">
-				{!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
+				{!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
 			</div>
 		{!! Form::close() !!}
 	</div>
