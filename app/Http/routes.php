@@ -35,4 +35,7 @@ Route::get('/admin', function() {
 Route::group(['middleware'=>'admin'], function() {
 	Route::resource('admin/users', 'AdminUsersController');
 	Route::resource('admin/posts', 'AdminPostsController');
+	Route::resource('admin/categories', 'AdminCategoriesController');
+	// Sample deleting using link
+	Route::get('admin/categories/{categories}', ['as'=>'category.delete', 'uses'=>'AdminCategoriesController@destroy']);
 });
