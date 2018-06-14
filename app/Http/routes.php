@@ -38,4 +38,8 @@ Route::group(['middleware'=>'admin'], function() {
 	Route::resource('admin/categories', 'AdminCategoriesController');
 	// Sample deleting using link
 	Route::get('admin/categories/{categories}', ['as'=>'category.delete', 'uses'=>'AdminCategoriesController@destroy']);
+	Route::resource('admin/media', 'AdminMediasController');
+	Route::get('admin/media/{media}', ['as'=>'admin.media.delete', 'uses'=>'AdminMediasController@destroy']);
+	// Route::get('admin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediasController@store'], function() {
+	// });
 });
