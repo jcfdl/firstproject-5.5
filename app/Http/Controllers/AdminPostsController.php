@@ -21,7 +21,7 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(2);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -118,7 +118,7 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
-        if($post->photo != 0 || $post->photo != '') {
+        if($post->photo_id != 0 || $post->photo_id != '') {
             unlink(public_path() . $post->photo->path);
         }
         $post->delete();

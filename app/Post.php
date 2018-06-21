@@ -3,9 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Post extends Model
-{
+{    
+
     protected $fillable = [
     	'user_id',
     	'category_id',
@@ -13,6 +13,7 @@ class Post extends Model
     	'title',
     	'body'
     ];
+    
 
     public function photo() {
     	return $this->belongsTo('App\Photo');
@@ -29,4 +30,5 @@ class Post extends Model
     public function comments() {
         return $this->hasMany('App\Comment');
     }
+
 }
