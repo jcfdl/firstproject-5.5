@@ -91,7 +91,7 @@ class PostCommentsController extends Controller
         } else {
             $comment->update(['is_active'=>1]);
         }
-        return redirect('admin/comments/replies');
+        return redirect()->back();
     }
 
     /**
