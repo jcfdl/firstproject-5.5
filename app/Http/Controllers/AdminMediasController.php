@@ -26,10 +26,14 @@ class AdminMediasController extends Controller
 		Photo::create(['path'=>$name]);
 	}
 
+	public function show() {
+		//
+	}
+
 	public function destroy($id) {
 		$photo = Photo::findOrFail($id);
 		$photo->delete();
 		Session::flash('deleted_image', 'The image has been deleted!');
-		return redirect('admin/media');
+		return redirect()->back();
 	}
 }
