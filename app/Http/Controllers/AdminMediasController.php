@@ -36,4 +36,14 @@ class AdminMediasController extends Controller
 		Session::flash('deleted_image', 'The image has been deleted!');
 		return redirect()->back();
 	}
+
+	public function deleteMedia(Request $request) {
+		if(!empty($request->mediaArr)) {
+			foreach($request->mediaArr as $val) {
+				Photo::findOrFail($val)->delete();
+			}
+			Session::flash('deleted_image', 'The image has been deleted!');
+		}		
+		return redirect()->back();
+	}
 }

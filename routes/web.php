@@ -16,6 +16,10 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 
+// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+//     \Unisharp\Laravelfilemanager\Lfm::routes();
+// });
+
 Route::group(['middleware'=>'admin'], function() {
 	Route::get('/admin', function() {
 		return view('admin.index');
@@ -46,6 +50,7 @@ Route::group(['middleware'=>'admin'], function() {
 		'create' 	=> 'admin.media.create'
 	]]);
 	Route::get('admin/media/{medium}', 'AdminMediasController@destroy')->name('admin.media.delete');
+	Route::post('admin/delete/media', 'AdminMediasController@deleteMedia');
 	// Route::get('admin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediasController@store'], function() {
 	// });	
 	// Comments 
